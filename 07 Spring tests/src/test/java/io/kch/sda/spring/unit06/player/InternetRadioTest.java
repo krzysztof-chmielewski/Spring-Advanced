@@ -43,5 +43,6 @@ public class InternetRadioTest {
 
         Assertions.assertThat(internetRadio.playedSongs()).contains(first, second, third);
         Assertions.assertThat(internetRadio.playedSongs()).hasSize(3);
+        Assertions.assertThat(internetRadio.currentSong()).isEqualTo(third);
     }
 }
