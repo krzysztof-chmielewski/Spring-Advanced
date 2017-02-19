@@ -33,4 +33,6 @@ public class SongController {
     public List<Song> listFromTo(@PathVariable Integer beginIndex, @PathVariable Integer endIndex) {
         return musicPlayer.playedSongs().subList(beginIndex, endIndex);
     }
+
+    //FIXME create method that will POST a Song and play it, as usual
 }
