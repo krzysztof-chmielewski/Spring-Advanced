@@ -34,5 +34,5 @@ public class SongController {
         return musicPlayer.playedSongs().subList(beginIndex, endIndex);
     }
 
-    //FIXME create method that will POST a Song and play it, as usual
+    //FIXME create method that will POST a Song, play it and redirect to given song
 }
