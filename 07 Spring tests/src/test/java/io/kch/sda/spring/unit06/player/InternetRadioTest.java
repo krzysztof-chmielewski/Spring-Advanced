@@ -1,6 +1,7 @@
 package io.kch.sda.spring.unit06.player;
 
-import io.kch.sda.spring.unit06.song.Song;
+import io.kch.sda.spring.springtests07.player.InternetRadio;
+import io.kch.sda.spring.springtests07.song.Song;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -35,7 +36,12 @@ public class InternetRadioTest {
         Song second = new Song("Artist2", "Album2", "Title2");
         Song third = new Song("Artist3", "Album3", "Title2");
 
-        //FIXME: finish testing that one
-        throw new Exception();
+
+        internetRadio.playSong(first);
+        internetRadio.playSong(second);
+        internetRadio.playSong(third);
+
+        Assertions.assertThat(internetRadio.playedSongs()).contains(first, second, third);
+        Assertions.assertThat(internetRadio.playedSongs()).hasSize(3);
     }
 }
