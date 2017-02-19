@@ -1,8 +1,6 @@
-package io.kch.sda.spring.player.springtests07;
+package io.kch.sda.spring.springtests07.player;
 
-import io.kch.sda.spring.springtests07.player.InternetRadio;
 import io.kch.sda.spring.springtests07.song.Song;
-//fixme: import static for assertThat
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
