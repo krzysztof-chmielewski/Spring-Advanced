@@ -4,7 +4,7 @@ import io.kch.sda.spring.rest04.player.MusicPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
@@ -35,9 +35,9 @@ public class SongController {
     }
 
     @PostMapping(path = "")
-    public void post(@Valid Song song, HttpServletResponse response) throws IOException {
+    public String post(@Valid Song song, HttpServletRequest request) throws IOException {
         musicPlayer.playSong(song);
 
-        response.sendRedirect(String.valueOf(musicPlayer.playedSongs().size() - 1));
+        return request.getRequestURL() + "/" + String.valueOf(musicPlayer.playedSongs().size() - 1);
     }
 }
