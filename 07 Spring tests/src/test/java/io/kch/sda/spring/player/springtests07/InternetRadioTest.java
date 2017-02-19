@@ -1,25 +1,24 @@
-package io.kch.sda.spring.unit06.player;
+package io.kch.sda.spring.player.springtests07;
 
 import io.kch.sda.spring.springtests07.player.InternetRadio;
 import io.kch.sda.spring.springtests07.song.Song;
+//fixme: import static for assertThat
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.util.Collections;
 
 public class InternetRadioTest {
+    private final InternetRadio internetRadio = new InternetRadio();
 
     @Test
     public void noSongsArePlayedAtTheBeginning() throws Exception {
-        InternetRadio internetRadio = new InternetRadio();
-
         Assertions.assertThat(internetRadio.playedSongs()).isEqualTo(Collections.emptyList());
         Assertions.assertThat(internetRadio.currentSong()).isNull();
     }
 
     @Test
     public void playingOneSongsAddsItToTheListOfSongs() throws Exception {
-        InternetRadio internetRadio = new InternetRadio();
         Song song = new Song("Artist", "Album", "Title");
 
         internetRadio.playSong(song);
@@ -31,11 +30,9 @@ public class InternetRadioTest {
 
     @Test
     public void playingThreeSongsAddsThemToTheListOfSongs() throws Exception {
-        InternetRadio internetRadio = new InternetRadio();
         Song first = new Song("Artist", "Album", "Title");
         Song second = new Song("Artist2", "Album2", "Title2");
         Song third = new Song("Artist3", "Album3", "Title2");
-
 
         internetRadio.playSong(first);
         internetRadio.playSong(second);
