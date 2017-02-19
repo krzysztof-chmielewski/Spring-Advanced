@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class SongController {
     }
 
     @PostMapping(path = "")
-    public void post(Song song, HttpServletResponse response) throws IOException {
+    public void post(@Valid Song song, HttpServletResponse response) throws IOException {
         musicPlayer.playSong(song);
 
         response.sendRedirect(String.valueOf(musicPlayer.playedSongs().size() - 1));
