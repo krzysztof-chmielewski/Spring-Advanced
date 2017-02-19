@@ -40,4 +40,23 @@ public class SongController {
 
         return request.getRequestURL() + "/" + String.valueOf(musicPlayer.playedSongs().size() - 1);
     }
+
+    @DeleteMapping(path = "")
+    public void delete() throws IOException {
+        musicPlayer.playedSongs().clear();
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void delete(@PathVariable int id) throws IOException {
+        musicPlayer.playedSongs().remove(id);
+    }
+
+    @PutMapping(path = "{id}")
+    public void put(@PathVariable int id, @Valid Song song) throws IOException {
+        Song currentSong = musicPlayer.playedSongs().get(id);
+
+        currentSong.setArtist(song.getArtist());
+        currentSong.setAlbum(song.getAlbum());
+        currentSong.setTitle(song.getTitle());
+    }
 }
