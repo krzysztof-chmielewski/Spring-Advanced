@@ -2,21 +2,45 @@ package io.kch.sda.spring.data10.song;
 
 import io.kch.sda.spring.data10.player.MusicPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.DataSource;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "songs")
 public class SongController {
     private final MusicPlayer musicPlayer;
+    private final DataSource dataSource;
 
     @Autowired
-    public SongController(MusicPlayer musicPlayer) {
+    public SongController(MusicPlayer musicPlayer, DataSource dataSource) {
         this.musicPlayer = musicPlayer;
+        this.dataSource = dataSource;
+    }
+
+    @PostMapping(path = "prepopulate")
+    public void prepopulate() {
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
+        List<Song> songs = template.query("SELECT * FROM song", new RowMapper<Song>() {
+            @Override
+            public Song mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return new Song(rs.getString("artist"),
+                        rs.getString("album"),
+                        rs.getString("title"));
+            }
+        });
+
+        for (Song song : songs) {
+            musicPlayer.playSong(song);
+        }
     }
 
     @GetMapping(path = "")
