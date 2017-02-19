@@ -19,6 +19,7 @@
         <jackson.version>2.8.6</jackson.version>
         <junit.version>4.12</junit.version>
         <assert.j.version>3.6.2</assert.j.version>
+        <json.assert>1.4.0</json.assert>
     </properties>
 
     <dependencies>
@@ -94,7 +95,7 @@
         <dependency>
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>
-            <version>1.4.0</version>
+            <version>${json.assert}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
