@@ -1,6 +1,6 @@
-package io.kch.sda.spring.rest05.song;
+package io.kch.sda.spring.unit06.song;
 
-import io.kch.sda.spring.rest05.player.MusicPlayer;
+import io.kch.sda.spring.unit06.player.MusicPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
