@@ -1,5 +1,6 @@
 package io.kch.sda.spring.orm11.configuration;
 
+import io.kch.sda.spring.orm11.song.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -61,7 +62,7 @@ public class SqlConfig {
                 = new LocalContainerEntityManagerFactoryBean();
 
         entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setPackagesToScan("io.kch.sda.spring.orm11.song");
+        entityManagerFactoryBean.setPackagesToScan(Song.class.getPackage().getName());
         entityManagerFactoryBean.setPersistenceUnitName("myPersistenceUnit");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
