@@ -32,4 +32,19 @@ public class InternetRadio implements MusicPlayer {
     public List<Song> playedSongs() {
         return songRepository.findAll();
     }
+
+    @Override
+    public void clearPlaylist() {
+
+    }
+
+    @Override
+    public void removeSongFromPlaylist(Integer id) {
+
+    }
+
+    @Override
+    public void replaceSongInPlaylist(Song song) {
+
+    }
 }

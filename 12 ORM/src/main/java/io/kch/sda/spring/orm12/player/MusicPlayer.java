@@ -10,4 +10,10 @@ public interface MusicPlayer {
     Song currentSong();
 
     List<Song> playedSongs();
+
+    void clearPlaylist();
+
+    void removeSongFromPlaylist(Integer id);
+
+    void replaceSongInPlaylist(Song song);
 }
