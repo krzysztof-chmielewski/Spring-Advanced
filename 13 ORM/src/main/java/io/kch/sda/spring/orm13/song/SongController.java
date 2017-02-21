@@ -24,6 +24,11 @@ public class SongController {
         return musicPlayer.playedSongs();
     }
 
+    @GetMapping(path = "artist/{artist}")
+    public List<Song> listByArtist(@PathVariable String artist) {
+        return musicPlayer.filterByArtist(artist);
+    }
+
     @GetMapping(path = "{id}")
     public Song get(@PathVariable Integer id) {
         return musicPlayer.playedSongs().get(id);

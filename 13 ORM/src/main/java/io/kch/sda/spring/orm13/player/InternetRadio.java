@@ -34,6 +34,11 @@ public class InternetRadio implements MusicPlayer {
     }
 
     @Override
+    public List<Song> filterByArtist(String artist) {
+        return songRepository.findByArtist(artist);
+    }
+
+    @Override
     public void clearPlaylist() {
         songRepository.deleteAll();
     }

@@ -11,6 +11,8 @@ public interface MusicPlayer {
 
     List<Song> playedSongs();
 
+    List<Song> filterByArtist(String artist);
+
     void clearPlaylist();
 
     void removeSongFromPlaylist(Integer id);
