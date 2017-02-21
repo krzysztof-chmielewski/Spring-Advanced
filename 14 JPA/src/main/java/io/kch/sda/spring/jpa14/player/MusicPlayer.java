@@ -13,6 +13,12 @@ public interface MusicPlayer {
 
     List<Song> filterByArtist(String artist);
 
+    List<Song> filterByArtist(String artist, int start, int offset);
+
+    List<Song> filterByArtistAndAlbum(String artist, String album);
+
+    List<Song> filterTop5ByArtist(String artist);
+
     void clearPlaylist();
 
     void removeSongFromPlaylist(Integer id);

@@ -29,6 +29,23 @@ public class SongController {
         return musicPlayer.filterByArtist(artist);
     }
 
+    @GetMapping(path = "artist/{artist}/album/{album}")
+    public List<Song> listByArtistAndAlbum(@PathVariable String artist, @PathVariable String album) {
+        return musicPlayer.filterByArtistAndAlbum(artist, album);
+    }
+
+    @GetMapping(path = "artist/{artist}/top5")
+    public List<Song> listTop5ByArtist(@PathVariable String artist) {
+        return musicPlayer.filterTop5ByArtist(artist);
+    }
+
+
+    @GetMapping(path = "artist/{artist}/{start}/{size}")
+    public List<Song> listByArtist(@PathVariable String artist, @PathVariable int start,
+                                   @PathVariable int size) {
+        return musicPlayer.filterByArtist(artist, start, size);
+    }
+
     @GetMapping(path = "{id}")
     public Song get(@PathVariable Integer id) {
         return musicPlayer.playedSongs().get(id);
