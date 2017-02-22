@@ -14,7 +14,6 @@ public class SongBean {
     @NotEmpty
     private String title;
 
-
     public SongBean(Integer id, String artist, String album, String title) {
         this.id = id;
         this.artist = artist;
