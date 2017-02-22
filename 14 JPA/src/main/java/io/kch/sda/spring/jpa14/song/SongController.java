@@ -29,6 +29,12 @@ public class SongController {
         return musicPlayer.filterByArtist(artist);
     }
 
+    @GetMapping(path = "orderBy/{field}/{direction}/{start}/{size}")
+    public List<Song> listByArtist(@PathVariable String field, @PathVariable String direction, @PathVariable int start,
+                                   @PathVariable int size) {
+        return musicPlayer.orderAndFilterBy(start, size, direction, field);
+    }
+
     @GetMapping(path = "artist/{artist}/album/{album}")
     public List<Song> listByArtistAndAlbum(@PathVariable String artist, @PathVariable String album) {
         return musicPlayer.filterByArtistAndAlbum(artist, album);

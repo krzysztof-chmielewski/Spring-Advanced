@@ -19,6 +19,8 @@ public interface MusicPlayer {
 
     List<Song> filterTop5ByArtist(String artist);
 
+    List<Song> orderAndFilterBy(int start, int offset, String orderBy, String field);
+
     void clearPlaylist();
 
     void removeSongFromPlaylist(Integer id);

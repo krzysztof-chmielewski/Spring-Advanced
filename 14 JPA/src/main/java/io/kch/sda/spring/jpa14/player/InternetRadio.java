@@ -4,6 +4,7 @@ import io.kch.sda.spring.jpa14.song.Song;
 import io.kch.sda.spring.jpa14.song.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,6 +53,11 @@ public class InternetRadio implements MusicPlayer {
     @Override
     public List<Song> filterTop5ByArtist(String artist) {
         return songRepository.findTop5ByArtist(artist);
+    }
+
+    @Override
+    public List<Song> orderAndFilterBy(int start, int offset, String orderBy, String field) {
+        return songRepository.findAll(new PageRequest(start, offset, Sort.Direction.fromString(orderBy), field)).getContent();
     }
 
     @Override
