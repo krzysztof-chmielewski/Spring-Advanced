@@ -7,3 +7,5 @@ curl -X GET -H "Content-Type:application/json" http://localhost:8080/songs
 curl -X GET -H "Content-Type:application/json" "http://localhost:8080/songs/search/findByArtist?artist=Iron+Maiden"
 curl -X GET -H "Content-Type:application/json" "http://localhost:8080/songs/search/findByAlbum?album=Toxicity"
 curl -X GET -H "Content-Type:application/json" "http://localhost:8080/songs/search/findByArtistAndAlbum?artist=System+of+a+Down&album=Toxicity"
+curl -X POST -H "Content-Type:application/json" -d "{\"artist\": \"System of a Down\", \"album\": \"Hypnotize\", \"title\": \"Lonely Day\" }" http://localhost:8080/songs
+curl -X POST -H "Content-Type:application/json" -d "{\"artist\": \"System of a Down\", \"album\": \"Hypnotize\", \"title\": \"Hypnotize\" }" http://localhost:8080/songs
