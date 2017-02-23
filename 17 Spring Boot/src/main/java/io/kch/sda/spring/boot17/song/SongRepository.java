@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "songs", path = "songs")
-public interface SpringRepository extends JpaRepository<Song, Integer> {
+public interface SongRepository extends JpaRepository<Song, Integer> {
     List<Song> findByArtist(@Param("artist") String artist);
 
     List<Song> findByAlbum(@Param("album") String album);
